@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  api:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: always # Recuperación proactiva ante fallos
+
+  postgres-db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_PASSWORD=SuperSecretPass123
+    restart: always
